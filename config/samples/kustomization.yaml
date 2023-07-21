@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- monster_v1_beholder.yaml
+#+kubebuilder:scaffold:manifestskustomizesamples

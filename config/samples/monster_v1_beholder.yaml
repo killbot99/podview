@@ -1,0 +1,12 @@
+apiVersion: monster.podview.killbot99.io/v1
+kind: Beholder
+metadata:
+  labels:
+    app.kubernetes.io/name: beholder
+    app.kubernetes.io/instance: beholder-sample
+    app.kubernetes.io/part-of: podview
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: podview
+  name: beholder-sample
+spec:
+  # TODO(user): Add fields here
