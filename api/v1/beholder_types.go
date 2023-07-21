@@ -17,6 +17,8 @@ limitations under the License.
 package v1
 
 import (
+	corev1 "k8s.io/api/core/v1"
+	"k8s.io/apimachinery/pkg/api/resource"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -29,13 +31,20 @@ type BeholderSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of Beholder. Edit beholder_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Foo          string    `json:"foo,omitempty"`
+	ReplicaCount int32     `json:"replicaCount"`
+	Resources    Resources `json:"resources"`
+	Image        Image     `json:"image"`
+	UI           UI        `json:"ui"`
+	Redis        Redis     `json:"redis"`
 }
 
 // BeholderStatus defines the observed state of Beholder
 type BeholderStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	AssociatedResources []corev1.ObjectReference `json:"associatedResources"`
+	Conditions          []metav1.Condition       `json:"conditions"`
 }
 
 //+kubebuilder:object:root=true
@@ -64,5 +73,22 @@ func init() {
 }
 
 type Resources struct {
-	MemoryLimit
+	MemoryLimit   resource.Quantity `json:"memoryLimit"`
+	MemoryRequest resource.Quantity `json:"memoryRequest"`
+	CPULimit      resource.Quantity `json:"cpuLimit"`
+	CPURequest    resource.Quantity `json:"cpuRequest"`
+}
+
+type Image struct {
+	Registry string `json:"registry"`
+	Tag      string `json:"tag"`
+}
+
+type UI struct {
+	Color   string `json:"color"`
+	Message string `json:"message"`
+}
+
+type Redis struct {
+	Enabled bool `json:"enabled"`
 }

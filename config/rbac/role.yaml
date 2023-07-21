@@ -1,0 +1,32 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - monster.podview.killbot99.io
+  resources:
+  - beholders
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - monster.podview.killbot99.io
+  resources:
+  - beholders/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - monster.podview.killbot99.io
+  resources:
+  - beholders/status
+  verbs:
+  - get
+  - patch
+  - update
