@@ -30,13 +30,16 @@ type BeholderSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of Beholder. Edit beholder_types.go to remove/update
-	Foo          string    `json:"foo,omitempty"`
-	ReplicaCount int32     `json:"replicaCount"`
-	Resources    Resources `json:"resources"`
-	Image        Image     `json:"image"`
-	UI           UI        `json:"ui"`
-	Redis        Redis     `json:"redis"`
+	// +kubebuilder:default:=1
+	ReplicaCount int32 `json:"replicaCount"`
+	// +kubebuilder:validation:Required
+	Resources Resources `json:"resources"`
+	// +kubebuilder:validation:Required
+	Image Image `json:"image"`
+	// +kubebuilder:validation:Required
+	UI UI `json:"ui"`
+	// +kubebuilder:default:true
+	Redis Redis `json:"redis"`
 }
 
 // BeholderStatus defines the observed state of Beholder
@@ -45,10 +48,13 @@ type BeholderStatus struct {
 	// Important: Run "make" to regenerate code after modifying this file
 	AssociatedResources []corev1.ObjectReference `json:"associatedResources"`
 	Conditions          []metav1.Condition       `json:"conditions"`
+	// ActiveReplicas is the number of ready pods
+	AvailableReplicas int32 `json:"availableReplicas"`
 }
 
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
+//+kubebuilder:resource:singular=beholder,scope=Namespaced
 
 // Beholder is the Schema for the beholders API
 type Beholder struct {

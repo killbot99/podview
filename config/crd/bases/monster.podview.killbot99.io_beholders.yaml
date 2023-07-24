@@ -34,10 +34,6 @@ spec:
           spec:
             description: BeholderSpec defines the desired state of Beholder
             properties:
-              foo:
-                description: Foo is an example field of Beholder. Edit beholder_types.go
-                  to remove/update
-                type: string
               image:
                 properties:
                   registry:
@@ -56,6 +52,7 @@ spec:
                 - enabled
                 type: object
               replicaCount:
+                default: 1
                 format: int32
                 type: integer
               resources:
@@ -176,6 +173,10 @@ spec:
                   type: object
                   x-kubernetes-map-type: atomic
                 type: array
+              availableReplicas:
+                description: ActiveReplicas is the number of ready pods
+                format: int32
+                type: integer
               conditions:
                 items:
                   description: "Condition contains details for one aspect of the current
@@ -246,6 +247,7 @@ spec:
                 type: array
             required:
             - associatedResources
+            - availableReplicas
             - conditions
             type: object
         type: object

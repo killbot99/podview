@@ -1,0 +1,20 @@
+mode: set
+github.com/killbot99/podview/internal/controller/beholder_controller.go:61.100,65.66 3 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:65.66,67.3 1 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:70.2,87.88 3 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:87.88,89.3 1 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:91.2,94.41 3 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:94.41,95.32 1 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:95.32,97.43 2 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:97.43,99.5 1 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:101.3,101.51 1 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:104.2,110.88 3 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:110.88,112.3 1 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:113.2,115.41 3 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:115.41,116.32 1 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:116.32,118.43 2 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:118.43,120.5 1 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:122.3,122.51 1 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:129.2,129.27 1 0
+github.com/killbot99/podview/internal/controller/beholder_controller.go:133.71,138.2 1 0
+github.com/killbot99/podview/internal/controller/predicates.go:13.71,18.2 3 0

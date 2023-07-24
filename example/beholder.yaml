@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: podinfo-1
+---
+apiVersion: monster.podview.killbot99.io/v1
+kind: Beholder
+metadata:
+  name: podinfo-1
+  namespace: podinfo-1
+spec:
+  replicaCount: 1
+  resources:
+    memoryLimit: 50Mi
+    memoryRequest: 50Mi
+    cpuLimit: 100m
+    cpuRequest: 100m
+  image:
+    registry: ghcr.io/stefanprodan/podinfo
+    tag: latest
+  ui:
+    color: "#222222"
+    message: "some message string"
+  redis:
+    enabled: true
